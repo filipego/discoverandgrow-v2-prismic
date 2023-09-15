@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap');
+
+
+// COLOR VARIABLES
+$color-primary: #29285D;
+$color-dark: #141414;
+$color-lighter-dark: #1e1e1e;
+$color-light-gray: #4e575a;
+$color-light: white;
+$color-lighter: #FAFBFB;
+$color-links: #01BFA7;
+
+
+
+// Typography
+
+$font-primary: 'Nunito', sans-serif;
+$font-secondary: 'Nunito', sans-serif;
+$logo: 'Nunito', sans-serif;
+
+
+// RESPONSIVE BREAKPOINTS
+
+$bp-largest: 128rem; // 1200px
+$bp-large: 102.4rem; // 1000px
+$bp-medium: 76.8rem; // 800px;
+$bp-small: 64rem; // 600px;
