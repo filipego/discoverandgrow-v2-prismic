@@ -1,0 +1,104 @@
+{
+  "id": "hero",
+  "type": "SharedSlice",
+  "name": "Hero",
+  "description": "Hero",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Heading",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading1,heading2"
+          }
+        },
+        "paragraph": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Paragraph",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,hyperlink,embed,list-item,o-list-item,strong,em"
+          }
+        },
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "homeHero",
+      "name": "Home Hero",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Heading",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "single": "heading1"
+          }
+        },
+        "paragraph": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Paragraph",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "single": "paragraph,strong,em"
+          }
+        },
+        "link_1": {
+          "type": "Link",
+          "config": {
+            "label": "Link 1",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "label_1": {
+          "type": "Text",
+          "config": {
+            "label": "Label 1",
+            "placeholder": ""
+          }
+        },
+        "link_2": {
+          "type": "Link",
+          "config": {
+            "label": "Link 2",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "label_2": {
+          "type": "Text",
+          "config": {
+            "label": "Label 2",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
