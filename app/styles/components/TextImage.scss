@@ -1,0 +1,17 @@
+.text-image {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8rem;
+    align-items: center;
+
+    img {
+        object-fit: contain;
+        width: 100%;
+        height: auto;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+}

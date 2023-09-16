@@ -14,7 +14,7 @@ const TextWithImage = ({ slice }) => {
       data-slice-variation={slice.variation}
     >
       {slice.variation === "default" &&
-        <Container classes="text-with-image">
+        <Container classes="text-image text-with-image">
           <div>
             <div className="text-with-image__heading">
               <PrismicRichText field={slice.primary.heading} />
@@ -26,8 +26,8 @@ const TextWithImage = ({ slice }) => {
           <PrismicNextImage field={slice.primary.image} />
         </Container>}
 
-      {slice.variation === "ImageWithText" &&
-        <Container classes="image-with-text">
+      {slice.variation === "imageWithText" &&
+        <Container classes="text-image image-with-text">
           <PrismicNextImage field={slice.primary.image} />
           <div>
             <div className="image-with-text__heading">
@@ -39,8 +39,8 @@ const TextWithImage = ({ slice }) => {
           </div>
         </Container>}
 
-      {slice.variation === "TextWithButtonAndImage" &&
-        <Container classes="text-with-button-image">
+      {slice.variation === "textWithButtonAndImage" &&
+        <Container classes="text-image text-with-button-image">
           <div>
             <div className="text-with-button-image__heading">
               <PrismicRichText field={slice.primary.heading} />
@@ -55,8 +55,8 @@ const TextWithImage = ({ slice }) => {
           <PrismicNextImage field={slice.primary.image} />
         </Container>}
 
-      {slice.variation === "ImageWithTextAndButton" &&
-        <Container classes="image-with-text-button">
+      {slice.variation === "imageWithTextAndButton" &&
+        <Container classes="text-image image-with-text-button">
           <PrismicNextImage field={slice.primary.image} />
           <div>
             <div className="image-with-text-button__heading">
