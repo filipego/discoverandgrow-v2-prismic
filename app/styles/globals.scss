@@ -431,6 +431,15 @@ iframe {
 }
 
 
+.our-programs {
+
+  .hero--default h1,
+  .hero--default h2 {
+    max-width: 50rem;
+  }
+}
+
+
 // Components
 
 @import "./components/Navigation.scss";

@@ -14,7 +14,7 @@ const Hero = ({ slice }) => {
       data-slice-variation={slice.variation}
     >
       {slice.variation === "default" &&
-        <Container classes="hero">
+        <Container classes="hero hero--default">
           <PrismicRichText field={slice.primary.heading} />
           <PrismicRichText field={slice.primary.paragraph} />
           <PrismicNextImage field={slice.primary.image} />

@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import { SliceZone } from "@prismicio/react";
 
 import { createClient } from "@/prismicio";
-// import { components } from "@/slices";
+import { components } from "@/slices";
 
 export default async function Page({ params }) {
     const client = createClient();
@@ -10,11 +10,13 @@ export default async function Page({ params }) {
         .getByUID("page", params.uid)
         .catch(() => notFound());
 
-    return (
-        <>Pages</>
-    )
 
-    //   return <SliceZone slices={page.data.slices} components={components} />;
+
+    return (
+        <div className={params.uid}>
+            <SliceZone slices={page.data.slices} components={components} />
+        </div>
+    );
 }
 
 export async function generateMetadata({ params }) {
