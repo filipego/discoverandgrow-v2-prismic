@@ -6,10 +6,11 @@
 h1,
 h2 {
     font-family: $font-primary;
-    font-size: 7.2rem;
-    line-height: 8rem;
+    font-size: 9rem;
+    line-height: 1.1;
     color: $color-dark;
-    font-weight: 700;
+    font-weight: bold;
+    text-transform: uppercase;
 
 
     @media only screen and (min-width : 1500px) {
@@ -53,7 +54,7 @@ h4,
 
 h3,
 .heading-3 {
-    font-family: $font-secondary;
+    font-family: $font-primary;
     font-size: 2rem;
     margin-bottom: 2rem;
     line-height: 1;
@@ -80,10 +81,10 @@ h4,
 
 p {
     color: $color-light-gray;
-    font-family: $font-primary;
-    font-size: 2.4rem;
+    font-family: $font-secondary;
+    font-size: 1.6rem;
     line-height: 1.5;
-    font-weight: 400;
+    font-weight: 500;
     margin-bottom: 2.5rem;
 
     @media only screen and (max-width: $bp-small) {

@@ -1,5 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap');
 
+
+
+
+@font-face {
+    font-family: 'Feijoa';
+    src: url('/fonts/Feijoa-Medium.woff2') format('woff2'),
+        url('/fonts/Feijoa-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Feijoa';
+    src: url('/fonts/Feijoa-Bold.woff2') format('woff2'),
+        url('/fonts/Feijoa-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
 
 // COLOR VARIABLES
 $color-primary: #29285D;
@@ -8,15 +28,15 @@ $color-lighter-dark: #1e1e1e;
 $color-light-gray: #4e575a;
 $color-light: #F5F5F5;
 $color-lighter: #FAFBFB;
-$color-links: #01BFA7;
+$color-links: #F15B3B;
 
 
 
 // Typography
 
-$font-primary: 'Nunito', sans-serif;
-$font-secondary: 'Nunito', sans-serif;
-$logo: 'Nunito', sans-serif;
+$font-primary: 'Inter', sans-serif;
+$font-secondary: 'Feijoa', serif;
+
 
 
 // RESPONSIVE BREAKPOINTS

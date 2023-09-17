@@ -14,7 +14,7 @@ const Hero = ({ slice }) => {
       data-slice-variation={slice.variation}
     >
       {slice.variation === "default" &&
-        <Container>
+        <Container classes="hero">
           <PrismicRichText field={slice.primary.heading} />
           <PrismicRichText field={slice.primary.paragraph} />
           <PrismicNextImage field={slice.primary.image} />
@@ -22,13 +22,15 @@ const Hero = ({ slice }) => {
       }
 
       {slice.variation === "homeHero" &&
-        <Container>
+        <Container classes="hero hero--home container--smaller">
           <PrismicRichText field={slice.primary.heading} />
-          <PrismicRichText field={slice.primary.paragraph} />
-          <ul>
-            <li><PrismicNextLink field={slice.primary.link_1}>{slice.primary.label_1}</PrismicNextLink></li>
-            <li><PrismicNextLink field={slice.primary.link_2}>{slice.primary.label_2}</PrismicNextLink></li>
-          </ul>
+          <div className="hero--home__text grid-col-2">
+            <PrismicRichText field={slice.primary.paragraph} />
+            <ul>
+              <li><PrismicNextLink field={slice.primary.link_1}>{slice.primary.label_1} &#62;</PrismicNextLink></li>
+              <li><PrismicNextLink field={slice.primary.link_2}>{slice.primary.label_2} &#62;</PrismicNextLink></li>
+            </ul>
+          </div>
         </Container>
       }
     </section>
