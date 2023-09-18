@@ -256,6 +256,16 @@ a {
   line-height: 1.5;
 }
 
+a:link {
+  font-family: $font-primary;
+  color: $color-links;
+}
+
+/* visited link */
+a:visited {
+  color: $color-links;
+}
+
 
 // Padding 0
 

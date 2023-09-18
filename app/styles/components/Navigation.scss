@@ -1,5 +1,5 @@
-.nav,
-.footer--nav {
+.header__nav,
+.footer__nav {
     ul {
         display: flex;
         justify-content: space-between;
@@ -9,4 +9,14 @@
         }
     }
 
+}
+
+.header__nav {
+    ul {
+        li {
+            a {
+                color: $color-primary;
+            }
+        }
+    }
 }
