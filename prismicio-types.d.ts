@@ -175,13 +175,13 @@ export interface SettingsDocumentDataNavigationItem {
 /**
  * Item in *Settings → Social Media Nav*
  */
-export interface SettingsDocumentDataSocialMediaNavItem {
+export interface SettingsDocumentDataSocialItem {
   /**
    * Link field in *Settings → Social Media Nav*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
-   * - **API ID Path**: settings.social_media_nav[].link
+   * - **API ID Path**: settings.social[].link
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   link: prismic.LinkField;
@@ -191,7 +191,7 @@ export interface SettingsDocumentDataSocialMediaNavItem {
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: settings.social_media_nav[].label
+   * - **API ID Path**: settings.social[].label
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   label: prismic.KeyTextField;
@@ -261,13 +261,11 @@ interface SettingsDocumentData {
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
-   * - **API ID Path**: settings.social_media_nav[]
+   * - **API ID Path**: settings.social[]
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#group
    */
-  social_media_nav: prismic.GroupField<
-    Simplify<SettingsDocumentDataSocialMediaNavItem>
-  >;
+  social: prismic.GroupField<Simplify<SettingsDocumentDataSocialItem>>;
 }
 
 /**
@@ -842,7 +840,7 @@ declare module "@prismicio/client" {
       SettingsDocument,
       SettingsDocumentData,
       SettingsDocumentDataNavigationItem,
-      SettingsDocumentDataSocialMediaNavItem,
+      SettingsDocumentDataSocialItem,
       AllDocumentTypes,
       HeadingAndTextSlice,
       HeadingAndTextSliceDefaultPrimary,

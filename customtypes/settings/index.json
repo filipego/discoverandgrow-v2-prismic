@@ -60,7 +60,7 @@
           "single": "paragraph"
         }
       },
-      "social_media_nav": {
+      "social": {
         "type": "Group",
         "config": {
           "label": "Social Media Nav",
