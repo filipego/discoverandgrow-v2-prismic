@@ -5,6 +5,8 @@ import { PrismicNextImage } from "@prismicio/next";
 import { PrismicRichText } from "@prismicio/react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from 'swiper';
+
 
 /**
  * @typedef {import("@prismicio/client").Content.SliderSlice} SliderSlice
@@ -19,6 +21,9 @@ const Slider = ({ slice }) => {
     >
 
       <Swiper
+
+        modules={[Navigation]}
+        navigation
         slidesPerView={1}
         spaceBetween={30}
         breakpoints={{
