@@ -1,0 +1,25 @@
+.slider {
+    &.grid-col-2 {
+
+        align-items: center;
+        justify-items: start;
+    }
+
+    .swiper {
+        max-width: 100%;
+    }
+
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    p {
+        max-width: 50rem;
+    }
+
+    img {
+        width: 100%;
+        height: auto
+    }
+}

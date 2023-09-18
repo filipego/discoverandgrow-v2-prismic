@@ -1,6 +1,7 @@
 @import "./reset.css";
 @import "./variables.scss";
 @import "./typography.scss";
+@import "./swiper.css";
 
 
 
@@ -407,6 +408,7 @@ a:visited {
 
 
 
+
 .our-programs {
 
   .hero--default h1,
@@ -426,3 +428,4 @@ a:visited {
 @import "./components/Hero.scss";
 @import "./components/Cards.scss";
 @import "./components/TextImage.scss";
+@import "./components/slider.scss";

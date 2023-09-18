@@ -138,7 +138,7 @@
 				"__TYPE__": "LinkContent",
 				"value": {
 					"__TYPE__": "ExternalLink",
-					"url": "http://twitter.com"
+					"url": "https://prismic.io"
 				}
 			},
 			"label": {
@@ -182,7 +182,6 @@
 		"variation": "imageWithTextAndButton",
 		"primary": {
 			"image": {
-				"__TYPE__": "ImageContent",
 				"origin": {
 					"id": "main",
 					"url": "https://images.unsplash.com/photo-1547082299-de196ea013d6",
@@ -200,6 +199,9 @@
 					},
 					"background": "transparent"
 				},
+				"credits": null,
+				"alt": null,
+				"__TYPE__": "ImageContent",
 				"thumbnails": {}
 			},
 			"heading": {
@@ -228,7 +230,7 @@
 				"__TYPE__": "LinkContent",
 				"value": {
 					"__TYPE__": "ExternalLink",
-					"url": "https://slicemachine.dev"
+					"url": "http://twitter.com"
 				}
 			},
 			"label": {

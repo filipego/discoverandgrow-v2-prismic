@@ -18,10 +18,11 @@
     "next": "13.4.19",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "sass": "^1.66.1"
+    "sass": "^1.66.1",
+    "swiper": "^8.4.4"
   },
   "devDependencies": {
-    "@slicemachine/adapter-next": "^0.3.15",
-    "slice-machine-ui": "^1.13.0"
+    "@slicemachine/adapter-next": "^0.3.16",
+    "slice-machine-ui": "^1.14.0"
   }
 }

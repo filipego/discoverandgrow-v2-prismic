@@ -5,6 +5,7 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type HomepageDocumentDataSlicesSlice =
+  | SliderSlice
   | VideoSlice
   | HeadingAndTextSlice
   | TextWithImageSlice
@@ -85,7 +86,11 @@ export type HomepageDocument<Lang extends string = string> =
     Lang
   >;
 
-type PageDocumentDataSlicesSlice = HeroSlice;
+type PageDocumentDataSlicesSlice =
+  | VideoSlice
+  | TextWithImageSlice
+  | HeadingAndTextSlice
+  | HeroSlice;
 
 /**
  * Content for Page documents
@@ -366,11 +371,130 @@ export type HeadingAndTextSliceVertical = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *HeadingAndText → Primary*
+ */
+export interface HeadingAndTextSliceWithButtonPrimary {
+  /**
+   * Heading field in *HeadingAndText → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: heading_and_text.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField;
+
+  /**
+   * Text field in *HeadingAndText → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: heading_and_text.primary.text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text: prismic.RichTextField;
+
+  /**
+   * Link field in *HeadingAndText → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: heading_and_text.primary.link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+
+  /**
+   * Label field in *HeadingAndText → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: heading_and_text.primary.label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  label: prismic.KeyTextField;
+}
+
+/**
+ * With Button variation for HeadingAndText Slice
+ *
+ * - **API ID**: `withButton`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeadingAndTextSliceWithButton = prismic.SharedSliceVariation<
+  "withButton",
+  Simplify<HeadingAndTextSliceWithButtonPrimary>,
+  never
+>;
+
+/**
+ * Primary content in *HeadingAndText → Primary*
+ */
+export interface HeadingAndTextSliceVerticalWithButtonPrimary {
+  /**
+   * Heading field in *HeadingAndText → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: heading_and_text.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField;
+
+  /**
+   * Text field in *HeadingAndText → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: heading_and_text.primary.text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text: prismic.RichTextField;
+
+  /**
+   * Link field in *HeadingAndText → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: heading_and_text.primary.link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+
+  /**
+   * Label field in *HeadingAndText → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: heading_and_text.primary.label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  label: prismic.KeyTextField;
+}
+
+/**
+ * Vertical with button variation for HeadingAndText Slice
+ *
+ * - **API ID**: `verticalWithButton`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeadingAndTextSliceVerticalWithButton =
+  prismic.SharedSliceVariation<
+    "verticalWithButton",
+    Simplify<HeadingAndTextSliceVerticalWithButtonPrimary>,
+    never
+  >;
+
+/**
  * Slice variation for *HeadingAndText*
  */
 type HeadingAndTextSliceVariation =
   | HeadingAndTextSliceDefault
-  | HeadingAndTextSliceVertical;
+  | HeadingAndTextSliceVertical
+  | HeadingAndTextSliceWithButton
+  | HeadingAndTextSliceVerticalWithButton;
 
 /**
  * HeadingAndText Shared Slice
@@ -523,6 +647,68 @@ type HeroSliceVariation = HeroSliceDefault | HeroSliceHomeHero;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
+
+/**
+ * Primary content in *Slider → Items*
+ */
+export interface SliderSliceDefaultItem {
+  /**
+   * Image field in *Slider → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slider.items[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Heading field in *Slider → Items*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slider.items[].heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField;
+
+  /**
+   * Paragraph field in *Slider → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slider.items[].paragraph
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  paragraph: prismic.RichTextField;
+}
+
+/**
+ * Default variation for Slider Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SliderSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  Simplify<SliderSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *Slider*
+ */
+type SliderSliceVariation = SliderSliceDefault;
+
+/**
+ * Slider Shared Slice
+ *
+ * - **API ID**: `slider`
+ * - **Description**: Slider
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SliderSlice = prismic.SharedSlice<"slider", SliderSliceVariation>;
 
 /**
  * Primary content in *TextWithImage → Primary*
@@ -845,15 +1031,23 @@ declare module "@prismicio/client" {
       HeadingAndTextSlice,
       HeadingAndTextSliceDefaultPrimary,
       HeadingAndTextSliceVerticalPrimary,
+      HeadingAndTextSliceWithButtonPrimary,
+      HeadingAndTextSliceVerticalWithButtonPrimary,
       HeadingAndTextSliceVariation,
       HeadingAndTextSliceDefault,
       HeadingAndTextSliceVertical,
+      HeadingAndTextSliceWithButton,
+      HeadingAndTextSliceVerticalWithButton,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceHomeHeroPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
       HeroSliceHomeHero,
+      SliderSlice,
+      SliderSliceDefaultItem,
+      SliderSliceVariation,
+      SliderSliceDefault,
       TextWithImageSlice,
       TextWithImageSliceDefaultPrimary,
       TextWithImageSliceImageWithTextPrimary,
