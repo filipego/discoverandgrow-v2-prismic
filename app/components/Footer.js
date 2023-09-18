@@ -14,7 +14,7 @@ export default async function Footer() {
         <footer className='footer'>
             <Container classes='flex-space-between pb-0'>
                 <div className="footer__bio">
-                    {/* <Link href="/">Discover and Grow</Link> */}
+                    <Link href="/">{settings.data.site_title}</Link>
                     <PrismicRichText field={settings.data.footer_text} />
                 </div>
                 <ul className='footer__social'>
