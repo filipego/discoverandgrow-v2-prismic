@@ -1,6 +1,40 @@
 .footer {
-    p {
-        margin-bottom: 0;
-        font-size: 1.2rem;
+    .container {
+        align-items: start;
     }
+
+    &__bio {
+        a {
+            margin-bottom: 3rem;
+            display: block;
+            color: $color-primary;
+        }
+
+        p {
+            margin-bottom: 0;
+            font-size: 1.2rem;
+            list-style: 1.5;
+            max-width: 34rem;
+        }
+    }
+
+    &__social {
+        li {
+            text-align: right;
+            margin-bottom: 1rem;
+        }
+
+        a {
+            color: $color-primary;
+
+        }
+    }
+
+    &__copyright {
+        p {
+            margin-bottom: 0;
+            font-size: 1.2rem;
+        }
+    }
+
 }

@@ -25,7 +25,7 @@ body {
 
 img {
   width: 100%;
-  object-fit: container;
+  object-fit: contain;
 }
 
 .video {
@@ -219,8 +219,6 @@ img {
   }
 }
 
-
-
 .flex-space-between {
   display: flex;
   justify-content: space-between;
@@ -230,23 +228,6 @@ img {
 
 // Button and link
 
-.btn {
-  background-color: #0E7490;
-  border-radius: 5rem;
-  padding: 1.2rem 5.6rem;
-  color: $color-light;
-  font-size: 1.5rem;
-  display: block;
-  line-height: 1.8rem;
-  width: fit-content;
-  cursor: pointer;
-  font-weight: 700;
-
-  &:hover {
-    background-color: black;
-  }
-
-}
 
 a {
   color: $color-links;
@@ -264,6 +245,25 @@ a:link {
 /* visited link */
 a:visited {
   color: $color-links;
+}
+
+
+.btn {
+  background-color: #0E7490;
+  border-radius: 5rem;
+  padding: 1.2rem 5.6rem;
+  color: $color-light;
+  font-size: 1.5rem;
+  display: block;
+  line-height: 1.8rem;
+  width: fit-content;
+  cursor: pointer;
+  font-weight: 700;
+
+  &:hover {
+    background-color: black;
+  }
+
 }
 
 
@@ -405,40 +405,6 @@ a:visited {
 }
 
 
-// Youtube Video
-
-iframe {
-  object-fit: contain;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-}
-
-// Text alignment
-
-.text-centred {
-  text-align: center;
-}
-
-.align-left {
-  text-align: left;
-  display: inline-block;
-}
-
-.align-center {
-  text-align: center;
-  display: block;
-}
-
-.align-right {
-  text-align: right;
-  display: block;
-}
-
-// Bigger Text
-
-.bigger-text {
-  font-size: 140%;
-}
 
 
 .our-programs {
