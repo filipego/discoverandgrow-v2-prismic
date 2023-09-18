@@ -18,11 +18,11 @@ export default async function Footer() {
                     <PrismicRichText field={settings.data.footer_text} />
                 </div>
                 <ul className='footer__social'>
-                    {settings.data.social.map(({ label, link }) => (
+                    {/* {settings.data.social.map(({ label, link }) => (
                         <li key={label}>
                             <PrismicNextLink field={link}>{label}</PrismicNextLink>
                         </li>
-                    ))}
+                    ))} */}
                 </ul>
             </Container>
 
