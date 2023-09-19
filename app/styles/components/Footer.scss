@@ -1,5 +1,5 @@
 .footer {
-    .container {
+    .footer__bio__social {
         align-items: start;
     }
 
@@ -31,6 +31,9 @@
     }
 
     &__copyright {
+        align-items: center;
+        margin-bottom: 3rem;
+
         p {
             margin-bottom: 0;
             font-size: 1.2rem;

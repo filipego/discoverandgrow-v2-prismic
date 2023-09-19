@@ -8,12 +8,18 @@ import { PrismicRichText } from "@prismicio/react";
  * @param {HeadingAndTextProps}
  */
 const HeadingAndText = ({ slice }) => {
+
+
   return (
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      <Container classes={`container--smaller heading-text ${slice.variation === 'vertical' ? `heading-text--vertical grid-col-1` : 'grid-col-2'}`}>
+      <Container classes={
+        `container--smaller 
+        heading-text ${slice.variation === 'vertical' ? `heading-text--vertical grid-col-1` : 'grid-col-2'}
+        container--${slice.primary.backround}
+        `}>
         <div className="heading-text__heading">
           <PrismicRichText field={slice.primary.heading} />
         </div>

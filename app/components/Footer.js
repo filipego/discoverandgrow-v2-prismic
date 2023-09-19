@@ -3,6 +3,7 @@ import { PrismicNextLink } from '@prismicio/next'
 import Link from 'next/link'
 import Container from './Container'
 import { PrismicRichText } from '@prismicio/react'
+import Badge from './badge'
 
 export default async function Footer() {
 
@@ -12,7 +13,7 @@ export default async function Footer() {
 
     return (
         <footer className='footer'>
-            <Container classes='flex-space-between pb-0'>
+            <Container classes='flex-space-between pb-0 footer__bio__social'>
                 <div className="footer__bio">
                     <Link href="/">{settings.data.site_title}</Link>
                     <PrismicRichText field={settings.data.footer_text} />
@@ -28,7 +29,7 @@ export default async function Footer() {
 
             <Container classes='flex-space-between pb-0 footer__copyright'>
                 <p>© DISCOVER AND GROW, INC.</p>
-                <p>img</p>
+                <Badge />
                 <p>ALL RIGHT RESERVED</p>
             </Container>
 

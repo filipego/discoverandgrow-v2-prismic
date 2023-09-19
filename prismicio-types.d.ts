@@ -299,6 +299,39 @@ export type AllDocumentTypes =
  */
 export interface HeadingAndTextSliceDefaultPrimary {
   /**
+   * Backround field in *HeadingAndText → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: default
+   * - **API ID Path**: heading_and_text.primary.backround
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  backround: prismic.SelectField<
+    | "default"
+    | "blue-background-full-width"
+    | "blue-background-rounded"
+    | "blue-background-rounded-top"
+    | "blue-background-rounded-bottom"
+    | "blue-background",
+    "filled"
+  >;
+
+  /**
+   * Padding field in *HeadingAndText → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: default
+   * - **API ID Path**: heading_and_text.primary.padding
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  padding: prismic.SelectField<
+    "default" | "no padding top " | "no padding bottom" | "half padding",
+    "filled"
+  >;
+
+  /**
    * Heading field in *HeadingAndText → Primary*
    *
    * - **Field Type**: Title
@@ -357,6 +390,39 @@ export type HeadingAndTextSliceDefault = prismic.SharedSliceVariation<
  */
 export interface HeadingAndTextSliceVerticalPrimary {
   /**
+   * Background field in *HeadingAndText → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: default
+   * - **API ID Path**: heading_and_text.primary.background
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  background: prismic.SelectField<
+    | "default"
+    | "blue-background-full-width"
+    | "blue-background-rounded"
+    | "blue-background-rounded-top"
+    | "blue-background-rounded-bottom"
+    | "blue-background",
+    "filled"
+  >;
+
+  /**
+   * Padding field in *HeadingAndText → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: default
+   * - **API ID Path**: heading_and_text.primary.padding
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  padding: prismic.SelectField<
+    "default" | "no padding top " | "no padding bottom" | "half padding",
+    "filled"
+  >;
+
+  /**
    * Heading field in *HeadingAndText → Primary*
    *
    * - **Field Type**: Title
@@ -411,130 +477,11 @@ export type HeadingAndTextSliceVertical = prismic.SharedSliceVariation<
 >;
 
 /**
- * Primary content in *HeadingAndText → Primary*
- */
-export interface HeadingAndTextSliceWithButtonPrimary {
-  /**
-   * Heading field in *HeadingAndText → Primary*
-   *
-   * - **Field Type**: Title
-   * - **Placeholder**: *None*
-   * - **API ID Path**: heading_and_text.primary.heading
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  heading: prismic.TitleField;
-
-  /**
-   * Text field in *HeadingAndText → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: heading_and_text.primary.text
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  text: prismic.RichTextField;
-
-  /**
-   * Link field in *HeadingAndText → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: heading_and_text.primary.link
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  link: prismic.LinkField;
-
-  /**
-   * Label field in *HeadingAndText → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: heading_and_text.primary.label
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  label: prismic.KeyTextField;
-}
-
-/**
- * With Button variation for HeadingAndText Slice
- *
- * - **API ID**: `withButton`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type HeadingAndTextSliceWithButton = prismic.SharedSliceVariation<
-  "withButton",
-  Simplify<HeadingAndTextSliceWithButtonPrimary>,
-  never
->;
-
-/**
- * Primary content in *HeadingAndText → Primary*
- */
-export interface HeadingAndTextSliceVerticalWithButtonPrimary {
-  /**
-   * Heading field in *HeadingAndText → Primary*
-   *
-   * - **Field Type**: Title
-   * - **Placeholder**: *None*
-   * - **API ID Path**: heading_and_text.primary.heading
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  heading: prismic.TitleField;
-
-  /**
-   * Text field in *HeadingAndText → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: heading_and_text.primary.text
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  text: prismic.RichTextField;
-
-  /**
-   * Link field in *HeadingAndText → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: heading_and_text.primary.link
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  link: prismic.LinkField;
-
-  /**
-   * Label field in *HeadingAndText → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: heading_and_text.primary.label
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  label: prismic.KeyTextField;
-}
-
-/**
- * Vertical with button variation for HeadingAndText Slice
- *
- * - **API ID**: `verticalWithButton`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type HeadingAndTextSliceVerticalWithButton =
-  prismic.SharedSliceVariation<
-    "verticalWithButton",
-    Simplify<HeadingAndTextSliceVerticalWithButtonPrimary>,
-    never
-  >;
-
-/**
  * Slice variation for *HeadingAndText*
  */
 type HeadingAndTextSliceVariation =
   | HeadingAndTextSliceDefault
-  | HeadingAndTextSliceVertical
-  | HeadingAndTextSliceWithButton
-  | HeadingAndTextSliceVerticalWithButton;
+  | HeadingAndTextSliceVertical;
 
 /**
  * HeadingAndText Shared Slice
@@ -1071,13 +1018,9 @@ declare module "@prismicio/client" {
       HeadingAndTextSlice,
       HeadingAndTextSliceDefaultPrimary,
       HeadingAndTextSliceVerticalPrimary,
-      HeadingAndTextSliceWithButtonPrimary,
-      HeadingAndTextSliceVerticalWithButtonPrimary,
       HeadingAndTextSliceVariation,
       HeadingAndTextSliceDefault,
       HeadingAndTextSliceVertical,
-      HeadingAndTextSliceWithButton,
-      HeadingAndTextSliceVerticalWithButton,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceHomeHeroPrimary,
