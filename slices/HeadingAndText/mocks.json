@@ -7,9 +7,9 @@
 				"__TYPE__": "StructuredTextContent",
 				"value": [
 					{
-						"type": "heading1",
+						"type": "heading2",
 						"content": {
-							"text": "Softly"
+							"text": "Sentence"
 						}
 					}
 				]
@@ -24,6 +24,18 @@
 						}
 					}
 				]
+			},
+			"link": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://prismic.io"
+				}
+			},
+			"label": {
+				"__TYPE__": "FieldContent",
+				"value": "did",
+				"type": "Text"
 			}
 		},
 		"items": []
@@ -36,9 +48,9 @@
 				"__TYPE__": "StructuredTextContent",
 				"value": [
 					{
-						"type": "heading1",
+						"type": "heading2",
 						"content": {
-							"text": "Fully"
+							"text": "Unless"
 						}
 					}
 				]
@@ -53,6 +65,18 @@
 						}
 					}
 				]
+			},
+			"link": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://slicemachine.dev"
+				}
+			},
+			"label": {
+				"__TYPE__": "FieldContent",
+				"value": "two",
+				"type": "Text"
 			}
 		},
 		"items": [

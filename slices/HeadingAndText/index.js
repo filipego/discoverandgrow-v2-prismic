@@ -1,4 +1,5 @@
 import Container from "@/app/components/Container";
+import { PrismicNextLink } from "@prismicio/next";
 import { PrismicRichText } from "@prismicio/react";
 
 /**
@@ -12,12 +13,13 @@ const HeadingAndText = ({ slice }) => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      <Container classes={`heading-text ${slice.variation === 'vertical' ? `heading-text--vertical` : ''}`}>
+      <Container classes={`container--smaller heading-text ${slice.variation === 'vertical' ? `heading-text--vertical grid-col-1` : 'grid-col-2'}`}>
         <div className="heading-text__heading">
           <PrismicRichText field={slice.primary.heading} />
         </div>
         <div className="heading-text__text">
           <PrismicRichText field={slice.primary.text} />
+          {slice.primary.label && <PrismicNextLink className="btn" field={slice.primary.link}>{slice.primary.label}</PrismicNextLink>}
         </div>
       </Container>
     </section>

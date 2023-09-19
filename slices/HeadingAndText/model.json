@@ -18,7 +18,7 @@
             "label": "Heading",
             "placeholder": "",
             "allowTargetBlank": false,
-            "single": "heading1,heading2"
+            "single": "heading2"
           }
         },
         "text": {
@@ -28,6 +28,22 @@
             "placeholder": "",
             "allowTargetBlank": true,
             "single": "paragraph,hyperlink,heading3,strong,em,list-item,o-list-item"
+          }
+        },
+        "link": {
+          "type": "Link",
+          "config": {
+            "label": "Link",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "select": null
+          }
+        },
+        "label": {
+          "type": "Text",
+          "config": {
+            "label": "Label",
+            "placeholder": ""
           }
         }
       },
@@ -47,7 +63,7 @@
             "label": "Heading",
             "placeholder": "",
             "allowTargetBlank": false,
-            "single": "heading1,heading2"
+            "single": "heading2"
           }
         },
         "text": {
@@ -57,6 +73,21 @@
             "placeholder": "",
             "allowTargetBlank": true,
             "single": "paragraph,hyperlink,heading3,strong,em,list-item,o-list-item"
+          }
+        },
+        "link": {
+          "type": "Link",
+          "config": {
+            "label": "Link",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "label": {
+          "type": "Text",
+          "config": {
+            "label": "Label",
+            "placeholder": ""
           }
         }
       },

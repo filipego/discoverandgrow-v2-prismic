@@ -21,7 +21,6 @@ const Slider = ({ slice }) => {
     >
 
       <Swiper
-
         modules={[Navigation]}
         navigation
         slidesPerView={1}
@@ -41,7 +40,7 @@ const Slider = ({ slice }) => {
 
         {slice.items.map((item, index) => (
           <SwiperSlide key={index}>
-            <Container classes="slider grid-col-2">
+            <Container classes="slider grid-col-2 container--smaller">
               <PrismicNextImage field={item.image} />
               <div className="slider__text">
                 <PrismicRichText field={item.heading} />
