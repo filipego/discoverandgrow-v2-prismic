@@ -3,7 +3,7 @@ import { PrismicNextLink } from '@prismicio/next'
 import Link from 'next/link'
 import Container from './Container'
 import { PrismicRichText } from '@prismicio/react'
-import Badge from './badge'
+import Badge from './Badge'
 
 export default async function Footer() {
 
