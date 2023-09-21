@@ -39,12 +39,17 @@
 			},
 			"backround": {
 				"__TYPE__": "FieldContent",
-				"value": "default",
+				"value": "blue-background-rounded-top",
 				"type": "Select"
 			},
 			"padding": {
 				"__TYPE__": "FieldContent",
 				"value": "default",
+				"type": "Select"
+			},
+			"background_elipse": {
+				"__TYPE__": "FieldContent",
+				"value": "curved-bottom",
 				"type": "Select"
 			}
 		},
@@ -90,12 +95,17 @@
 			},
 			"background": {
 				"__TYPE__": "FieldContent",
-				"value": "default",
+				"value": "blue-background",
 				"type": "Select"
 			},
 			"padding": {
 				"__TYPE__": "FieldContent",
 				"value": "half padding",
+				"type": "Select"
+			},
+			"background_elipse": {
+				"__TYPE__": "FieldContent",
+				"value": "curved-bottom",
 				"type": "Select"
 			}
 		},

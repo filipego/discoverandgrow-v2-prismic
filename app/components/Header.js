@@ -27,3 +27,50 @@ export default async function Header() {
     )
 }
 
+// "use client"
+
+// import Link from 'next/link';
+// import { useState } from 'react';
+
+// const NavBar = () => {
+//     const [isOpen, setIsOpen] = useState(false);
+
+//     const toggleMenu = () => {
+//         setIsOpen(!isOpen);
+//     };
+
+//     return (
+//         <nav className={`navbar ${isOpen ? 'open' : ''}`}>
+//             <div className="logo">
+//                 <Link href="/">Logo</Link>
+//             </div>
+//             <div className={`menu ${isOpen ? 'open' : ''}`}>
+//                 <ul className="navList">
+//                     <li className="navItem">
+//                         <Link href="/">Home</Link>
+//                     </li>
+//                     <li className="navItem">
+//                         <Link href="/about">About</Link>
+//                     </li>
+//                     <li className="navItem">
+//                         <Link href="/contact">Contact</Link>
+//                     </li>
+//                 </ul>
+//             </div>
+//             <div className={`hamburger ${isOpen ? 'open' : ''}`} onClick={toggleMenu}>
+//                 <div className="line"></div>
+//                 <div className="line"></div>
+//                 <div className="line"></div>
+//             </div>
+//         </nav>
+//     );
+// };
+
+// export default NavBar;
+
+
+
+
+
+
+

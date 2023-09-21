@@ -309,13 +309,22 @@ export interface HeadingAndTextSliceDefaultPrimary {
    */
   backround: prismic.SelectField<
     | "default"
-    | "blue-background-full-width"
     | "blue-background-rounded"
     | "blue-background-rounded-top"
     | "blue-background-rounded-bottom"
     | "blue-background",
     "filled"
   >;
+
+  /**
+   * Background elipse field in *HeadingAndText → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: heading_and_text.primary.background_elipse
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  background_elipse: prismic.SelectField<"curved-top" | "curved-bottom">;
 
   /**
    * Padding field in *HeadingAndText → Primary*
@@ -400,13 +409,22 @@ export interface HeadingAndTextSliceVerticalPrimary {
    */
   background: prismic.SelectField<
     | "default"
-    | "blue-background-full-width"
     | "blue-background-rounded"
     | "blue-background-rounded-top"
     | "blue-background-rounded-bottom"
     | "blue-background",
     "filled"
   >;
+
+  /**
+   * Background elipse field in *HeadingAndText → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: heading_and_text.primary.background_elipse
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  background_elipse: prismic.SelectField<"curved-top" | "curved-bottom">;
 
   /**
    * Padding field in *HeadingAndText → Primary*

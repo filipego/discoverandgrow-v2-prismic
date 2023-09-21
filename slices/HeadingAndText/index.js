@@ -15,8 +15,12 @@ const HeadingAndText = ({ slice }) => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      <Container classes={
-        `container--smaller 
+      <Container
+        wrapperClasses={
+          `wrapper--${slice.primary.background_elipse}`
+        }
+        classes={
+          `container--smaller 
         heading-text ${slice.variation === 'vertical' ? `heading-text--vertical grid-col-1` : 'grid-col-2'}
         container--${slice.primary.backround}
         `}>

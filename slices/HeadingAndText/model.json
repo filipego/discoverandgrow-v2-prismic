@@ -19,13 +19,23 @@
             "placeholder": "",
             "options": [
               "default",
-              "blue-background-full-width",
               "blue-background-rounded",
               "blue-background-rounded-top",
               "blue-background-rounded-bottom",
               "blue-background"
             ],
             "default_value": "default"
+          }
+        },
+        "background_elipse": {
+          "type": "Select",
+          "config": {
+            "label": "Background elipse",
+            "placeholder": "",
+            "options": [
+              "curved-top",
+              "curved-bottom"
+            ]
           }
         },
         "padding": {
@@ -94,13 +104,23 @@
             "placeholder": "",
             "options": [
               "default",
-              "blue-background-full-width",
               "blue-background-rounded",
               "blue-background-rounded-top",
               "blue-background-rounded-bottom",
               "blue-background"
             ],
             "default_value": "default"
+          }
+        },
+        "background_elipse": {
+          "type": "Select",
+          "config": {
+            "label": "Background elipse",
+            "placeholder": "",
+            "options": [
+              "curved-top",
+              "curved-bottom"
+            ]
           }
         },
         "padding": {
