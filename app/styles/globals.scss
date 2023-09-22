@@ -371,9 +371,10 @@ a:link {
 }
 
 /* visited link */
-a:visited {
-  color: $color-links;
-}
+a,
+a:visited,
+a:hover,
+a:active {}
 
 
 .btn {
