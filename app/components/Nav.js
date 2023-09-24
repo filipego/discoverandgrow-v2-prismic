@@ -1,6 +1,7 @@
 "use client"
 import { useState } from 'react';
 import { PrismicNextLink } from '@prismicio/next'
+import Link from 'next/link'
 
 export default function Nav({ settings }) {
 
@@ -14,6 +15,8 @@ export default function Nav({ settings }) {
         <>
             <nav className={`header__nav navbar ${isOpen ? 'open' : ''}`}>
                 <div className={`menu ${isOpen ? 'open' : ''}`}>
+
+                    <Link onClick={toggleMenu} className="logo logo--nav" href="/">{settings.data.site_title}</Link>
                     <ul className="navList">
                         {settings.data.navigation.map(({ label, link }) => (
                             <li key={label}>

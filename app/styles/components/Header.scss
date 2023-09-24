@@ -14,8 +14,9 @@
 }
 
 .logo {
-
-    z-index: 100000;
+    &--nav {
+        display: none;
+    }
 }
 
 .menu {
@@ -50,6 +51,8 @@
 
 /* Media query for responsiveness */
 @media (max-width: 1024px) {
+
+
     .menu {
         flex-direction: column;
         width: 100%;
@@ -73,6 +76,16 @@
         /* Change max-height to height */
         opacity: 1;
         transform: scaleY(1);
+    }
+
+    .logo {
+
+        &--nav {
+            display: block;
+            z-index: 100000;
+            align-self: start;
+            padding: 3rem 0 0 2.5rem;
+        }
     }
 
     .navList {
@@ -116,6 +129,7 @@
 
 /* Media query for larger screens */
 @media (min-width: 1023px) {
+
     .menu {
         /* Display the menu on screens larger than 768px */
         display: flex;
