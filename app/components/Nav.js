@@ -1,15 +1,20 @@
 "use client"
 import { useState } from 'react';
+import { usePathname } from 'next/navigation'
 import { PrismicNextLink } from '@prismicio/next'
 import Link from 'next/link'
 
 export default function Nav({ settings }) {
+
+    const pathname = usePathname()
 
     const [isOpen, setIsOpen] = useState(false);
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
     };
+
+    console.log(pathname)
 
     return (
         <>
@@ -20,7 +25,10 @@ export default function Nav({ settings }) {
                     <ul className="navList">
                         {settings.data.navigation.map(({ label, link }) => (
                             <li key={label}>
-                                <PrismicNextLink onClick={toggleMenu} className='navItem' field={link}>{label}</PrismicNextLink>
+                                <PrismicNextLink
+                                    onClick={toggleMenu}
+                                    className={`navItem ${pathname === link.url ? "active" : ""}`}
+                                    field={link}>{label}</PrismicNextLink>
                             </li>
                         ))}
                     </ul>
