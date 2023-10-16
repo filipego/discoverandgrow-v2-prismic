@@ -1,0 +1,39 @@
+{
+  "id": "shop",
+  "type": "SharedSlice",
+  "name": "Shop",
+  "description": "Shop",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Heading",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading2"
+          }
+        }
+      },
+      "items": {
+        "shop_items": {
+          "type": "Link",
+          "config": {
+            "label": "Shop Items",
+            "select": "document",
+            "customtypes": [
+              "shop_item"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

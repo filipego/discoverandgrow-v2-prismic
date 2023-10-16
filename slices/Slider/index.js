@@ -18,6 +18,7 @@ const Slider = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
+      className="default-slider"
     >
 
       <Swiper

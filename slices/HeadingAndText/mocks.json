@@ -20,7 +20,7 @@
 					{
 						"type": "paragraph",
 						"content": {
-							"text": "Quis exercitation ipsum aliqua amet pariatur Lorem in tempor adipisicing do labore eiusmod. Labore ea fugiat aliquip mollit voluptate enim ut elit cupidatat amet irure. Do et veniam pariatur et est anim."
+							"text": "Adipisicing amet duis ipsum quis est esse sunt. Reprehenderit eiusmod magna cupidatat enim et laboris adipisicing."
 						}
 					}
 				]
@@ -53,7 +53,12 @@
 				"type": "Select"
 			}
 		},
-		"items": []
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
 	},
 	{
 		"__TYPE__": "SharedSliceContent",

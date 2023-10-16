@@ -14,7 +14,6 @@ export default function Nav({ settings }) {
         setIsOpen(!isOpen);
     };
 
-    console.log(pathname)
 
     return (
         <>

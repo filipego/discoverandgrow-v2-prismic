@@ -63,8 +63,8 @@
           "config": {
             "label": "Paragraph",
             "placeholder": "",
-            "allowTargetBlank": false,
-            "single": "paragraph,strong,em"
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
           }
         },
         "link_1": {

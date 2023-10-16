@@ -27,6 +27,7 @@ body {
 img {
   width: 100%;
   object-fit: contain;
+  height: auto;
 }
 
 .video {
@@ -142,6 +143,20 @@ img {
   &--smallest {
     max-width: 60rem;
   }
+
+  &--no-padding-top {
+    padding-top: 0;
+  }
+
+  &--no-padding-bottom {
+    padding-bottom: 0;
+  }
+
+  &--half-padding {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+
 
 
   @media only screen and (max-width: $bp-small) {
@@ -558,5 +573,7 @@ a:active {}
 
 @import "./components/Hero.scss";
 @import "./components/Cards.scss";
+@import "./components/HeadingText.scss";
 @import "./components/TextImage.scss";
 @import "./components/slider.scss";
+@import "./components/Shop.scss";

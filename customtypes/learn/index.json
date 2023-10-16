@@ -1,36 +1,32 @@
 {
-  "id": "homepage",
-  "label": "Homepage",
+  "id": "learn",
+  "label": "Learn",
   "format": "page",
-  "repeatable": false,
+  "repeatable": true,
   "status": true,
   "json": {
     "Main": {
-      "title": {
-        "type": "Text",
+      "uid": {
         "config": {
-          "label": "Title",
-          "placeholder": ""
-        }
+          "label": "UID"
+        },
+        "type": "UID"
       },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "shop": {
+            "text_with_image": {
+              "type": "SharedSlice"
+            },
+            "heading_and_text": {
               "type": "SharedSlice"
             },
             "slider": {
               "type": "SharedSlice"
             },
             "video": {
-              "type": "SharedSlice"
-            },
-            "heading_and_text": {
-              "type": "SharedSlice"
-            },
-            "text_with_image": {
               "type": "SharedSlice"
             },
             "hero": {
@@ -41,13 +37,6 @@
       }
     },
     "SEO & Metadata": {
-      "meta_title": {
-        "config": {
-          "label": "Meta Title",
-          "placeholder": "A title of the page used for social media and search engines"
-        },
-        "type": "Text"
-      },
       "meta_description": {
         "config": {
           "label": "Meta Description",
@@ -65,6 +54,13 @@
           "thumbnails": []
         },
         "type": "Image"
+      },
+      "meta_title": {
+        "config": {
+          "label": "Meta Title",
+          "placeholder": "A title of the page used for social media and search engines"
+        },
+        "type": "Text"
       }
     }
   }

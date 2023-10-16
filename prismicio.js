@@ -21,6 +21,10 @@ const routes = [
     path: "/",
   },
   {
+    type: "learn",
+    path: "/learn/:uid",
+  },
+  {
     type: "page",
     path: "/:uid",
   },

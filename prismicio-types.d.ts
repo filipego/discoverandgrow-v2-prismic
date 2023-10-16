@@ -5,6 +5,7 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type HomepageDocumentDataSlicesSlice =
+  | ShopSlice
   | SliderSlice
   | VideoSlice
   | HeadingAndTextSlice
@@ -85,6 +86,73 @@ export type HomepageDocument<Lang extends string = string> =
     "homepage",
     Lang
   >;
+
+type LearnDocumentDataSlicesSlice =
+  | TextWithImageSlice
+  | HeadingAndTextSlice
+  | SliderSlice
+  | VideoSlice
+  | HeroSlice;
+
+/**
+ * Content for Learn documents
+ */
+interface LearnDocumentData {
+  /**
+   * Slice Zone field in *Learn*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: learn.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<LearnDocumentDataSlicesSlice>
+  /**
+   * Meta Description field in *Learn*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: learn.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Learn*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: learn.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+
+  /**
+   * Meta Title field in *Learn*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: learn.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField;
+}
+
+/**
+ * Learn document from Prismic
+ *
+ * - **API ID**: `learn`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type LearnDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<LearnDocumentData>, "learn", Lang>;
 
 type PageDocumentDataSlicesSlice =
   | VideoSlice
@@ -289,10 +357,88 @@ export type SettingsDocument<Lang extends string = string> =
     Lang
   >;
 
+/**
+ * Content for Shop Item documents
+ */
+interface ShopItemDocumentData {
+  /**
+   * Image field in *Shop Item*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: shop_item.image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Title field in *Shop Item*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: shop_item.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.TitleField;
+
+  /**
+   * Paragraph field in *Shop Item*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: shop_item.paragraph
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  paragraph: prismic.RichTextField;
+
+  /**
+   * Label field in *Shop Item*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: shop_item.label
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  label: prismic.KeyTextField;
+
+  /**
+   * Link field in *Shop Item*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: shop_item.link
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+}
+
+/**
+ * Shop Item document from Prismic
+ *
+ * - **API ID**: `shop_item`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ShopItemDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<ShopItemDocumentData>,
+    "shop_item",
+    Lang
+  >;
+
 export type AllDocumentTypes =
   | HomepageDocument
+  | LearnDocument
   | PageDocument
-  | SettingsDocument;
+  | SettingsDocument
+  | ShopItemDocument;
 
 /**
  * Primary content in *HeadingAndText → Primary*
@@ -336,7 +482,7 @@ export interface HeadingAndTextSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#select
    */
   padding: prismic.SelectField<
-    "default" | "no padding top " | "no padding bottom" | "half padding",
+    "default" | "no-padding-top " | "no-padding-bottom" | "half-padding",
     "filled"
   >;
 
@@ -349,16 +495,6 @@ export interface HeadingAndTextSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   heading: prismic.TitleField;
-
-  /**
-   * Text field in *HeadingAndText → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: heading_and_text.primary.text
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  text: prismic.RichTextField;
 
   /**
    * Link field in *HeadingAndText → Primary*
@@ -379,6 +515,16 @@ export interface HeadingAndTextSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   label: prismic.KeyTextField;
+
+  /**
+   * Text field in *HeadingAndText → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: heading_and_text.primary.text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text: prismic.RichTextField;
 }
 
 /**
@@ -652,6 +798,63 @@ type HeroSliceVariation = HeroSliceDefault | HeroSliceHomeHero;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
+
+/**
+ * Primary content in *Shop → Primary*
+ */
+export interface ShopSliceDefaultPrimary {
+  /**
+   * Heading field in *Shop → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: shop.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField;
+}
+
+/**
+ * Primary content in *Shop → Items*
+ */
+export interface ShopSliceDefaultItem {
+  /**
+   * Shop Items field in *Shop → Items*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: shop.items[].shop_items
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  shop_items: prismic.ContentRelationshipField<"shop_item">;
+}
+
+/**
+ * Default variation for Shop Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ShopSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ShopSliceDefaultPrimary>,
+  Simplify<ShopSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *Shop*
+ */
+type ShopSliceVariation = ShopSliceDefault;
+
+/**
+ * Shop Shared Slice
+ *
+ * - **API ID**: `shop`
+ * - **Description**: Shop
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ShopSlice = prismic.SharedSlice<"shop", ShopSliceVariation>;
 
 /**
  * Primary content in *Slider → Items*
@@ -1025,6 +1228,9 @@ declare module "@prismicio/client" {
       HomepageDocument,
       HomepageDocumentData,
       HomepageDocumentDataSlicesSlice,
+      LearnDocument,
+      LearnDocumentData,
+      LearnDocumentDataSlicesSlice,
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
@@ -1032,6 +1238,8 @@ declare module "@prismicio/client" {
       SettingsDocumentData,
       SettingsDocumentDataNavigationItem,
       SettingsDocumentDataSocialItem,
+      ShopItemDocument,
+      ShopItemDocumentData,
       AllDocumentTypes,
       HeadingAndTextSlice,
       HeadingAndTextSliceDefaultPrimary,
@@ -1045,6 +1253,11 @@ declare module "@prismicio/client" {
       HeroSliceVariation,
       HeroSliceDefault,
       HeroSliceHomeHero,
+      ShopSlice,
+      ShopSliceDefaultPrimary,
+      ShopSliceDefaultItem,
+      ShopSliceVariation,
+      ShopSliceDefault,
       SliderSlice,
       SliderSliceDefaultItem,
       SliderSliceVariation,

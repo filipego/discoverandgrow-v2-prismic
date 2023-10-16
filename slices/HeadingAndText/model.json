@@ -45,9 +45,9 @@
             "placeholder": "",
             "options": [
               "default",
-              "no padding top ",
-              "no padding bottom",
-              "half padding"
+              "no-padding-top ",
+              "no-padding-bottom",
+              "half-padding"
             ],
             "default_value": "default"
           }
@@ -59,15 +59,6 @@
             "placeholder": "",
             "allowTargetBlank": false,
             "single": "heading2"
-          }
-        },
-        "text": {
-          "type": "StructuredText",
-          "config": {
-            "label": "Text",
-            "placeholder": "",
-            "allowTargetBlank": true,
-            "single": "paragraph,hyperlink,heading3,strong,em,list-item,o-list-item"
           }
         },
         "link": {
@@ -84,6 +75,15 @@
           "config": {
             "label": "Label",
             "placeholder": ""
+          }
+        },
+        "text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Text",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
           }
         }
       },

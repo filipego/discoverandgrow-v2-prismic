@@ -1,5 +1,5 @@
-.slider {
-    &.grid-col-2 {
+.default-slider {
+    .grid-col-2 {
 
         align-items: center;
         justify-items: start;
@@ -10,8 +10,9 @@
     }
 
     h2 {
+        max-width: 35rem;
         font-size: 2rem;
-        margin-bottom: 2rem;
+        margin-bottom: 2.5rem;
     }
 
     p {

@@ -23,6 +23,7 @@ const HeadingAndText = ({ slice }) => {
           `container--smaller 
         heading-text ${slice.variation === 'vertical' ? `heading-text--vertical grid-col-1` : 'grid-col-2'}
         container--${slice.primary.backround}
+        container--${slice.primary.padding}
         `}>
         <div className="heading-text__heading">
           <PrismicRichText field={slice.primary.heading} />
