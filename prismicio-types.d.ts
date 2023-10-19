@@ -786,9 +786,50 @@ export type HeroSliceHomeHero = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *Hero → Primary*
+ */
+export interface HeroSliceDefaultFormPrimary {
+  /**
+   * Heading field in *Hero → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField;
+
+  /**
+   * Paragraph field in *Hero → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.paragraph
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  paragraph: prismic.RichTextField;
+}
+
+/**
+ * Default form variation for Hero Slice
+ *
+ * - **API ID**: `defaultForm`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeroSliceDefaultForm = prismic.SharedSliceVariation<
+  "defaultForm",
+  Simplify<HeroSliceDefaultFormPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *Hero*
  */
-type HeroSliceVariation = HeroSliceDefault | HeroSliceHomeHero;
+type HeroSliceVariation =
+  | HeroSliceDefault
+  | HeroSliceHomeHero
+  | HeroSliceDefaultForm;
 
 /**
  * Hero Shared Slice
@@ -1250,9 +1291,11 @@ declare module "@prismicio/client" {
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceHomeHeroPrimary,
+      HeroSliceDefaultFormPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
       HeroSliceHomeHero,
+      HeroSliceDefaultForm,
       ShopSlice,
       ShopSliceDefaultPrimary,
       ShopSliceDefaultItem,

@@ -28,6 +28,7 @@ const routes = [
     type: "page",
     path: "/:uid",
   },
+
 ];
 
 /**

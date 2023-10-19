@@ -1,4 +1,5 @@
 import Container from "@/app/components/Container";
+import DefaultForm from "@/app/components/DefaultForm";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { PrismicRichText } from "@prismicio/react";
 
@@ -31,6 +32,14 @@ const Hero = ({ slice }) => {
               <li><PrismicNextLink field={slice.primary.link_2}>{slice.primary.label_2} &#62;</PrismicNextLink></li>
             </ul>
           </div>
+        </Container>
+      }
+
+      {slice.variation === "defaultForm" &&
+        <Container classes="hero hero--default-form">
+          <PrismicRichText field={slice.primary.heading} />
+          <PrismicRichText field={slice.primary.paragraph} />
+          <DefaultForm />
         </Container>
       }
     </section>
