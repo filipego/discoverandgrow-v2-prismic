@@ -20,10 +20,10 @@ const routes = [
     type: "homepage",
     path: "/",
   },
-  // {
-  //   type: "learn",
-  //   path: "/learn/:uid",
-  // },
+  {
+    type: "learn",
+    path: "/learn/:uid",
+  },
   {
     type: "page",
     path: "/:uid",
