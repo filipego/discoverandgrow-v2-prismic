@@ -36,9 +36,11 @@ const Hero = ({ slice }) => {
       }
 
       {slice.variation === "defaultForm" &&
-        <Container classes="hero hero--default-form">
-          <PrismicRichText field={slice.primary.heading} />
-          <PrismicRichText field={slice.primary.paragraph} />
+        <Container classes="hero hero--default-form container--smaller grid-col-2 ">
+          <div className="hero__text">
+            <PrismicRichText field={slice.primary.heading} />
+            <PrismicRichText field={slice.primary.paragraph} />
+          </div>
           <DefaultForm />
         </Container>
       }
