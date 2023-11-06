@@ -93,4 +93,4 @@ const TwoColumns = ({ slice }) => {
   );
 };
 
-export default TextWithImage;
+export default TwoColumns;

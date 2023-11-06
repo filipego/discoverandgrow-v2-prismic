@@ -16,6 +16,7 @@ export default function NewsletterForm({ FORMSPARK_FORM_ID }) {
         e.preventDefault();
         await submit({ email });
         alert("Form submitted");
+        e.target.reset();
     };
 
     return (

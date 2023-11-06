@@ -21,10 +21,11 @@ export default function CircleOfSecurityInterestForm({ FORMSPARK_FORM_ID }) {
         e.preventDefault();
         await submit({ name, email, state, city, timezone, age, message });
         alert("Form submitted");
+        e.target.reset();
     };
 
     return (
-        <form onSubmit={onSubmit} className="form form--default">
+        <form onSubmit={onSubmit} className="form">
             <input type="text" id="name" name="name" placeholder="Name" onChange={(e) => setName(e.target.value)} required />
             <input type="email" id="email" name="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} required="" />
             <select name="state" id="state" onChange={(e) => setState(e.target.value)} required="">

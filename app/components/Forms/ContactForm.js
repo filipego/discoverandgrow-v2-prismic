@@ -19,6 +19,7 @@ export default function ContactForm({ FORMSPARK_FORM_ID }) {
         e.preventDefault();
         await submit({ name, email, message });
         alert("Form submitted");
+        e.target.reset();
     };
 
     return (

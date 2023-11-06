@@ -3,6 +3,9 @@
 import React, { useState } from "react";
 import { useFormspark } from "@formspark/use-formspark";
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 export default function SelfLoveFeelingsForm({ FORMSPARK_FORM_ID }) {
     const [submit, submitting] = useFormspark({
@@ -17,13 +20,25 @@ export default function SelfLoveFeelingsForm({ FORMSPARK_FORM_ID }) {
     const [age, setAge] = useState("");
     const [message, setMessage] = useState("");
 
+    const notify = () => toast.success("Thank you, your message has been sent", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+    });
+
     const onSubmit = async (e) => {
         e.preventDefault();
         await submit({ name, email, state, city, timezone, age, message });
         alert("Form submitted");
+        notify()
+        e.target.reset();
     };
 
-    return (
+    return (<>
         <form onSubmit={onSubmit} className="form form--default">
             <input type="text" id="name" name="name" placeholder="Name" onChange={(e) => setName(e.target.value)} required />
             <input type="email" id="email" name="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} required="" />
@@ -103,5 +118,18 @@ export default function SelfLoveFeelingsForm({ FORMSPARK_FORM_ID }) {
                 Send
             </button>
         </form>
+        <ToastContainer
+            position="top-center"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+        />
+    </>
+
     );
 }
