@@ -33,7 +33,6 @@ export default function SelfLoveFeelingsForm({ FORMSPARK_FORM_ID }) {
     const onSubmit = async (e) => {
         e.preventDefault();
         await submit({ name, email, state, city, timezone, age, message });
-        alert("Form submitted");
         notify()
         e.target.reset();
     };
