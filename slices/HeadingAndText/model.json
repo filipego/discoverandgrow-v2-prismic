@@ -12,10 +12,10 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
-        "backround": {
+        "background": {
           "type": "Select",
           "config": {
-            "label": "Backround",
+            "label": "Background",
             "placeholder": "",
             "options": [
               "default",
@@ -47,7 +47,8 @@
               "default",
               "no-padding-top ",
               "no-padding-bottom",
-              "half-padding"
+              "half-padding",
+              "no-padding"
             ],
             "default_value": "default"
           }
@@ -132,7 +133,8 @@
               "default",
               "no padding top ",
               "no padding bottom",
-              "half padding"
+              "half padding",
+              "no-padding"
             ],
             "default_value": "default"
           }

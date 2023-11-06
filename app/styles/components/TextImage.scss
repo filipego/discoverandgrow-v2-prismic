@@ -10,6 +10,10 @@
         height: auto;
     }
 
+    &.default-form {
+        align-items: start;
+    }
+
     @media only screen and (max-width: $bp-small) {
         grid-template-columns: 1fr;
         gap: 0;

@@ -37,11 +37,6 @@
 				"value": "did",
 				"type": "Text"
 			},
-			"backround": {
-				"__TYPE__": "FieldContent",
-				"value": "blue-background-rounded-top",
-				"type": "Select"
-			},
 			"padding": {
 				"__TYPE__": "FieldContent",
 				"value": "default",
@@ -50,6 +45,11 @@
 			"background_elipse": {
 				"__TYPE__": "FieldContent",
 				"value": "curved-bottom",
+				"type": "Select"
+			},
+			"background": {
+				"__TYPE__": "FieldContent",
+				"value": "blue-background-rounded",
 				"type": "Select"
 			}
 		},
@@ -105,7 +105,7 @@
 			},
 			"padding": {
 				"__TYPE__": "FieldContent",
-				"value": "half padding",
+				"value": "default",
 				"type": "Select"
 			},
 			"background_elipse": {

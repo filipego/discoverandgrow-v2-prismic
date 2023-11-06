@@ -81,16 +81,20 @@ h3,
 
 h4,
 .heading-4 {
-    font-size: 2rem;
+    font-size: 1.4rem;
+    line-height: 1.4;
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+    font-weight: bold;
+    max-width: 40rem;
 }
 
 
 p {
     color: $color-light-gray;
     font-family: $font-secondary;
-    font-size: 1.6rem;
-    line-height: 1.5;
-    font-weight: 500;
+    font-size: 1.3rem;
+    line-height: 1.7;
     margin-bottom: 2.5rem;
 
     @media only screen and (max-width: $bp-small) {

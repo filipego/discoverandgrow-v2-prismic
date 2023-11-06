@@ -3,10 +3,8 @@
 import React, { useState } from "react";
 import { useFormspark } from "@formspark/use-formspark";
 
-const FORMSPARK_FORM_ID = "dS2euDbR";
 
-
-export default function DefaultForm() {
+export default function CircleOfSecurityInterestForm({ FORMSPARK_FORM_ID }) {
     const [submit, submitting] = useFormspark({
         formId: FORMSPARK_FORM_ID,
     });
@@ -15,13 +13,13 @@ export default function DefaultForm() {
     const [email, setEmail] = useState("");
     const [state, setState] = useState("");
     const [city, setCity] = useState("");
+    const [timezone, setTimezone] = useState("");
     const [age, setAge] = useState("");
-    const [interests, setInterests] = useState("");
     const [message, setMessage] = useState("");
 
     const onSubmit = async (e) => {
         e.preventDefault();
-        await submit({ name, email, state, city, age, interests, message });
+        await submit({ name, email, state, city, timezone, age, message });
         alert("Form submitted");
     };
 
@@ -84,8 +82,22 @@ export default function DefaultForm() {
                 <option value="WY">Wyoming</option>
             </select>
             <input type="text" id="city" name="city" placeholder="City" onChange={(e) => setCity(e.target.value)} required />
+            <select name="timezone" id="timezone" onChange={(e) => setTimezone(e.target.value)} required="">
+                <option value="" selected="selected">Select a Time Zone</option>
+                <option value="UTC">UTC (Coordinated Universal Time)</option>
+                <option value="GMT">GMT (Greenwich Mean Time)</option>
+                <option value="EST">EST (Eastern Standard Time)</option>
+                <option value="CST">CST (Central Standard Time)</option>
+                <option value="MST">MST (Mountain Standard Time)</option>
+                <option value="PST">PST (Pacific Standard Time)</option>
+                <option value="AKST">AKST (Alaska Standard Time)</option>
+                <option value="HST">HST (Hawaii-Aleutian Standard Time)</option>
+                <option value="AEST">AEST (Australian Eastern Standard Time)</option>
+                <option value="CET">CET (Central European Time)</option>
+                <option value="JST">JST (Japan Standard Time)</option>
+                <option value="IST">IST (Indian Standard Time)</option>
+            </select>
             <input type="text" id="age" name="age" placeholder="Age of child/children" onChange={(e) => setAge(e.target.value)} required />
-            <input type="text" id="interests" name="interests" placeholder="Interests" onChange={(e) => setInterests(e.target.value)} required />
             <textarea placeholder="Message" value={message} onChange={(e) => setMessage(e.target.value)} required />
             <button className="btn" type="submit" disabled={submitting}>
                 Send

@@ -36,8 +36,7 @@ interface HomepageDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
-  slices: prismic.SliceZone<HomepageDocumentDataSlicesSlice>
-  /**
+  slices: prismic.SliceZone<HomepageDocumentDataSlicesSlice> /**
    * Meta Title field in *Homepage*
    *
    * - **Field Type**: Text
@@ -88,6 +87,8 @@ export type HomepageDocument<Lang extends string = string> =
   >;
 
 type LearnDocumentDataSlicesSlice =
+  | ShopSlice
+  | CardsSlice
   | TextWithImageSlice
   | HeadingAndTextSlice
   | SliderSlice
@@ -107,8 +108,7 @@ interface LearnDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
-  slices: prismic.SliceZone<LearnDocumentDataSlicesSlice>
-  /**
+  slices: prismic.SliceZone<LearnDocumentDataSlicesSlice> /**
    * Meta Description field in *Learn*
    *
    * - **Field Type**: Text
@@ -155,6 +155,9 @@ export type LearnDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<LearnDocumentData>, "learn", Lang>;
 
 type PageDocumentDataSlicesSlice =
+  | ShopSlice
+  | SliderSlice
+  | CardsSlice
   | VideoSlice
   | TextWithImageSlice
   | HeadingAndTextSlice
@@ -173,8 +176,7 @@ interface PageDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
-  slices: prismic.SliceZone<PageDocumentDataSlicesSlice>
-  /**
+  slices: prismic.SliceZone<PageDocumentDataSlicesSlice> /**
    * Meta Title field in *Page*
    *
    * - **Field Type**: Text
@@ -441,19 +443,158 @@ export type AllDocumentTypes =
   | ShopItemDocument;
 
 /**
+ * Primary content in *Cards → Primary*
+ */
+export interface CardsSliceDefaultPrimary {
+  /**
+   * Background field in *Cards → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.primary.background
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  background: prismic.SelectField<
+    | "default"
+    | "blue-background-rounded"
+    | "blue-background-rounded-top"
+    | "blue-background-rounded-bottom"
+    | "blue-background"
+  >;
+
+  /**
+   * Padding field in *Cards → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.primary.padding
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  padding: prismic.SelectField<
+    | "default"
+    | "no-padding-top "
+    | "no-padding-bottom"
+    | "half-padding"
+    | "no-padding"
+  >;
+
+  /**
+   * Align field in *Cards → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.primary.align
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  align: prismic.SelectField<"default" | "left">;
+
+  /**
+   * Heading field in *Cards → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField;
+}
+
+/**
+ * Primary content in *Cards → Items*
+ */
+export interface CardsSliceDefaultItem {
+  /**
+   * Image field in *Cards → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.items[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Heading field in *Cards → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.items[].heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * Paragraph field in *Cards → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.items[].paragraph
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  paragraph: prismic.RichTextField;
+
+  /**
+   * Label field in *Cards → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.items[].label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  label: prismic.KeyTextField;
+
+  /**
+   * Link field in *Cards → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.items[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+}
+
+/**
+ * Default variation for Cards Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CardsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<CardsSliceDefaultPrimary>,
+  Simplify<CardsSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *Cards*
+ */
+type CardsSliceVariation = CardsSliceDefault;
+
+/**
+ * Cards Shared Slice
+ *
+ * - **API ID**: `cards`
+ * - **Description**: Cards
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CardsSlice = prismic.SharedSlice<"cards", CardsSliceVariation>;
+
+/**
  * Primary content in *HeadingAndText → Primary*
  */
 export interface HeadingAndTextSliceDefaultPrimary {
   /**
-   * Backround field in *HeadingAndText → Primary*
+   * Background field in *HeadingAndText → Primary*
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
    * - **Default Value**: default
-   * - **API ID Path**: heading_and_text.primary.backround
+   * - **API ID Path**: heading_and_text.primary.background
    * - **Documentation**: https://prismic.io/docs/field#select
    */
-  backround: prismic.SelectField<
+  background: prismic.SelectField<
     | "default"
     | "blue-background-rounded"
     | "blue-background-rounded-top"
@@ -482,7 +623,11 @@ export interface HeadingAndTextSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#select
    */
   padding: prismic.SelectField<
-    "default" | "no-padding-top " | "no-padding-bottom" | "half-padding",
+    | "default"
+    | "no-padding-top "
+    | "no-padding-bottom"
+    | "half-padding"
+    | "no-padding",
     "filled"
   >;
 
@@ -582,7 +727,11 @@ export interface HeadingAndTextSliceVerticalPrimary {
    * - **Documentation**: https://prismic.io/docs/field#select
    */
   padding: prismic.SelectField<
-    "default" | "no padding top " | "no padding bottom" | "half padding",
+    | "default"
+    | "no padding top "
+    | "no padding bottom"
+    | "half padding"
+    | "no-padding",
     "filled"
   >;
 
@@ -960,11 +1109,43 @@ type SliderSliceVariation = SliderSliceDefault;
 export type SliderSlice = prismic.SharedSlice<"slider", SliderSliceVariation>;
 
 /**
- * Primary content in *TextWithImage → Primary*
+ * Primary content in *TwoColumns → Primary*
  */
 export interface TextWithImageSliceDefaultPrimary {
   /**
-   * Heading field in *TextWithImage → Primary*
+   * Background field in *TwoColumns → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_with_image.primary.background
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  background: prismic.SelectField<
+    | "default"
+    | "blue-background-rounded"
+    | "blue-background-rounded-top"
+    | "blue-background-rounded-bottom"
+    | "blue-background"
+  >;
+
+  /**
+   * Padding field in *TwoColumns → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_with_image.primary.padding
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  padding: prismic.SelectField<
+    | "default"
+    | "no-padding-top "
+    | "no-padding-bottom"
+    | "half-padding"
+    | "no-padding"
+  >;
+
+  /**
+   * Heading field in *TwoColumns → Primary*
    *
    * - **Field Type**: Title
    * - **Placeholder**: *None*
@@ -974,17 +1155,17 @@ export interface TextWithImageSliceDefaultPrimary {
   heading: prismic.TitleField;
 
   /**
-   * Text field in *TextWithImage → Primary*
+   * Paragraph field in *TwoColumns → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: text_with_image.primary.text
+   * - **API ID Path**: text_with_image.primary.paragraph
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  text: prismic.RichTextField;
+  paragraph: prismic.RichTextField;
 
   /**
-   * Image field in *TextWithImage → Primary*
+   * Image field in *TwoColumns → Primary*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -992,10 +1173,30 @@ export interface TextWithImageSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   image: prismic.ImageField<never>;
+
+  /**
+   * Label field in *TwoColumns → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_with_image.primary.label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  label: prismic.KeyTextField;
+
+  /**
+   * Link field in *TwoColumns → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_with_image.primary.link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
 }
 
 /**
- * Default variation for TextWithImage Slice
+ * Default variation for TwoColumns Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
@@ -1008,11 +1209,43 @@ export type TextWithImageSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
- * Primary content in *TextWithImage → Primary*
+ * Primary content in *TwoColumns → Primary*
  */
 export interface TextWithImageSliceImageWithTextPrimary {
   /**
-   * Image field in *TextWithImage → Primary*
+   * Background field in *TwoColumns → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_with_image.primary.background
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  background: prismic.SelectField<
+    | "default"
+    | "blue-background-rounded"
+    | "blue-background-rounded-top"
+    | "blue-background-rounded-bottom"
+    | "blue-background"
+  >;
+
+  /**
+   * Padding field in *TwoColumns → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_with_image.primary.padding
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  padding: prismic.SelectField<
+    | "default"
+    | "no-padding-top "
+    | "no-padding-bottom"
+    | "half-padding"
+    | "no-padding"
+  >;
+
+  /**
+   * Image field in *TwoColumns → Primary*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -1022,7 +1255,7 @@ export interface TextWithImageSliceImageWithTextPrimary {
   image: prismic.ImageField<never>;
 
   /**
-   * Heading field in *TextWithImage → Primary*
+   * Heading field in *TwoColumns → Primary*
    *
    * - **Field Type**: Title
    * - **Placeholder**: *None*
@@ -1032,18 +1265,38 @@ export interface TextWithImageSliceImageWithTextPrimary {
   heading: prismic.TitleField;
 
   /**
-   * Text field in *TextWithImage → Primary*
+   * Paragraph field in *TwoColumns → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: text_with_image.primary.text
+   * - **API ID Path**: text_with_image.primary.paragraph
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  text: prismic.RichTextField;
+  paragraph: prismic.RichTextField;
+
+  /**
+   * Label field in *TwoColumns → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_with_image.primary.label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  label: prismic.KeyTextField;
+
+  /**
+   * Link field in *TwoColumns → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_with_image.primary.link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
 }
 
 /**
- * ImageWithText variation for TextWithImage Slice
+ * ImageWithText variation for TwoColumns Slice
  *
  * - **API ID**: `imageWithText`
  * - **Description**: Default
@@ -1056,11 +1309,43 @@ export type TextWithImageSliceImageWithText = prismic.SharedSliceVariation<
 >;
 
 /**
- * Primary content in *TextWithImage → Primary*
+ * Primary content in *TwoColumns → Primary*
  */
-export interface TextWithImageSliceTextWithButtonAndImagePrimary {
+export interface TextWithImageSliceDefaultFormPrimary {
   /**
-   * Heading field in *TextWithImage → Primary*
+   * Background field in *TwoColumns → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_with_image.primary.background
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  background: prismic.SelectField<
+    | "default"
+    | "blue-background-rounded"
+    | "blue-background-rounded-top"
+    | "blue-background-rounded-bottom"
+    | "blue-background"
+  >;
+
+  /**
+   * Padding field in *TwoColumns → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_with_image.primary.padding
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  padding: prismic.SelectField<
+    | "default"
+    | "no-padding-top "
+    | "no-padding-bottom"
+    | "half-padding"
+    | "no-padding"
+  >;
+
+  /**
+   * Heading field in *TwoColumns → Primary*
    *
    * - **Field Type**: Title
    * - **Placeholder**: *None*
@@ -1070,27 +1355,17 @@ export interface TextWithImageSliceTextWithButtonAndImagePrimary {
   heading: prismic.TitleField;
 
   /**
-   * Text field in *TextWithImage → Primary*
+   * Paragraph field in *TwoColumns → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: text_with_image.primary.text
+   * - **API ID Path**: text_with_image.primary.paragraph
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  text: prismic.RichTextField;
+  paragraph: prismic.RichTextField;
 
   /**
-   * Link field in *TextWithImage → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: text_with_image.primary.link
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  link: prismic.LinkField;
-
-  /**
-   * Label field in *TextWithImage → Primary*
+   * Label field in *TwoColumns → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -1100,66 +1375,7 @@ export interface TextWithImageSliceTextWithButtonAndImagePrimary {
   label: prismic.KeyTextField;
 
   /**
-   * Image field in *TextWithImage → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: text_with_image.primary.image
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image: prismic.ImageField<never>;
-}
-
-/**
- * TextWithButtonAndImage variation for TextWithImage Slice
- *
- * - **API ID**: `textWithButtonAndImage`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type TextWithImageSliceTextWithButtonAndImage =
-  prismic.SharedSliceVariation<
-    "textWithButtonAndImage",
-    Simplify<TextWithImageSliceTextWithButtonAndImagePrimary>,
-    never
-  >;
-
-/**
- * Primary content in *TextWithImage → Primary*
- */
-export interface TextWithImageSliceImageWithTextAndButtonPrimary {
-  /**
-   * Image field in *TextWithImage → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: text_with_image.primary.image
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image: prismic.ImageField<never>;
-
-  /**
-   * Heading field in *TextWithImage → Primary*
-   *
-   * - **Field Type**: Title
-   * - **Placeholder**: *None*
-   * - **API ID Path**: text_with_image.primary.heading
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  heading: prismic.TitleField;
-
-  /**
-   * Text field in *TextWithImage → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: text_with_image.primary.text
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  text: prismic.RichTextField;
-
-  /**
-   * Link field in *TextWithImage → Primary*
+   * Link field in *TwoColumns → Primary*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
@@ -1169,41 +1385,51 @@ export interface TextWithImageSliceImageWithTextAndButtonPrimary {
   link: prismic.LinkField;
 
   /**
-   * Label field in *TextWithImage → Primary*
+   * Forms field in *TwoColumns → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_with_image.primary.forms
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  forms: prismic.SelectField<
+    "Self Love Feelings" | "Circle Of Security Interest"
+  >;
+
+  /**
+   * Form ID field in *TwoColumns → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: text_with_image.primary.label
+   * - **API ID Path**: text_with_image.primary.form_id
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  label: prismic.KeyTextField;
+  form_id: prismic.KeyTextField;
 }
 
 /**
- * ImageWithTextAndButton variation for TextWithImage Slice
+ * DefaultForm variation for TwoColumns Slice
  *
- * - **API ID**: `imageWithTextAndButton`
+ * - **API ID**: `defaultForm`
  * - **Description**: Default
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type TextWithImageSliceImageWithTextAndButton =
-  prismic.SharedSliceVariation<
-    "imageWithTextAndButton",
-    Simplify<TextWithImageSliceImageWithTextAndButtonPrimary>,
-    never
-  >;
+export type TextWithImageSliceDefaultForm = prismic.SharedSliceVariation<
+  "defaultForm",
+  Simplify<TextWithImageSliceDefaultFormPrimary>,
+  never
+>;
 
 /**
- * Slice variation for *TextWithImage*
+ * Slice variation for *TwoColumns*
  */
 type TextWithImageSliceVariation =
   | TextWithImageSliceDefault
   | TextWithImageSliceImageWithText
-  | TextWithImageSliceTextWithButtonAndImage
-  | TextWithImageSliceImageWithTextAndButton;
+  | TextWithImageSliceDefaultForm;
 
 /**
- * TextWithImage Shared Slice
+ * TwoColumns Shared Slice
  *
  * - **API ID**: `text_with_image`
  * - **Description**: TextWithImage
@@ -1260,7 +1486,7 @@ declare module "@prismicio/client" {
   interface CreateClient {
     (
       repositoryNameOrEndpoint: string,
-      options?: prismic.ClientConfig
+      options?: prismic.ClientConfig,
     ): prismic.Client<AllDocumentTypes>;
   }
 
@@ -1282,6 +1508,11 @@ declare module "@prismicio/client" {
       ShopItemDocument,
       ShopItemDocumentData,
       AllDocumentTypes,
+      CardsSlice,
+      CardsSliceDefaultPrimary,
+      CardsSliceDefaultItem,
+      CardsSliceVariation,
+      CardsSliceDefault,
       HeadingAndTextSlice,
       HeadingAndTextSliceDefaultPrimary,
       HeadingAndTextSliceVerticalPrimary,
@@ -1308,13 +1539,11 @@ declare module "@prismicio/client" {
       TextWithImageSlice,
       TextWithImageSliceDefaultPrimary,
       TextWithImageSliceImageWithTextPrimary,
-      TextWithImageSliceTextWithButtonAndImagePrimary,
-      TextWithImageSliceImageWithTextAndButtonPrimary,
+      TextWithImageSliceDefaultFormPrimary,
       TextWithImageSliceVariation,
       TextWithImageSliceDefault,
       TextWithImageSliceImageWithText,
-      TextWithImageSliceTextWithButtonAndImage,
-      TextWithImageSliceImageWithTextAndButton,
+      TextWithImageSliceDefaultForm,
       VideoSlice,
       VideoSliceDefaultPrimary,
       VideoSliceVariation,

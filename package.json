@@ -23,7 +23,7 @@
     "swiper": "^8.4.4"
   },
   "devDependencies": {
-    "@slicemachine/adapter-next": "^0.3.16",
-    "slice-machine-ui": "^1.14.0"
+    "@slicemachine/adapter-next": "^0.3.23",
+    "slice-machine-ui": "^1.19.1"
   }
 }

@@ -3,10 +3,9 @@
 import React, { useState } from "react";
 import { useFormspark } from "@formspark/use-formspark";
 
-const FORMSPARK_FORM_ID = "nZrFzt0J";
 
 
-export default function ContactForm() {
+export default function ContactForm({ FORMSPARK_FORM_ID }) {
     const [submit, submitting] = useFormspark({
         formId: FORMSPARK_FORM_ID,
     });

@@ -1,5 +1,5 @@
 import Container from "@/app/components/Container";
-import DefaultForm from "@/app/components/DefaultForm";
+import SelfLoveFeelingsForm from "@/app/components/Forms/SelfLoveFeelingsForm";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { PrismicRichText } from "@prismicio/react";
 
@@ -41,7 +41,7 @@ const Hero = ({ slice }) => {
             <PrismicRichText field={slice.primary.heading} />
             <PrismicRichText field={slice.primary.paragraph} />
           </div>
-          <DefaultForm />
+          <SelfLoveFeelingsForm FORMSPARK_FORM_ID="nh35YxhT" />
         </Container>
       }
     </section>

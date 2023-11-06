@@ -144,6 +144,11 @@ img {
     max-width: 60rem;
   }
 
+  &--no-padding {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
   &--no-padding-top {
     padding-top: 0;
   }
@@ -241,13 +246,16 @@ img {
 
 
   &--blue-background-rounded {
-    max-width: 120rem;
+    max-width: 116rem;
     border-radius: 4rem;
-    padding: 10rem;
+    padding-right: 6rem;
+    padding-left: 6rem;
     background-color: $color-primary;
     margin-top: 12rem;
 
-    h2 {
+    h2,
+    h3,
+    h4 {
       color: $color-light;
     }
 
@@ -261,14 +269,17 @@ img {
   }
 
   &--blue-background-rounded-top {
-    max-width: 120rem;
+    max-width: 116rem;
     border-top-left-radius: 4rem;
     border-top-right-radius: 4rem;
-    padding: 10rem;
+    padding-right: 6rem;
+    padding-left: 6rem;
     background-color: $color-primary;
     margin-top: 12rem;
 
-    h2 {
+    h2,
+    h3,
+    h4 {
       color: $color-light;
     }
 
@@ -282,13 +293,16 @@ img {
   }
 
   &--blue-background-rounded-bottom {
-    max-width: 120rem;
+    max-width: 116rem;
     border-bottom-left-radius: 4rem;
     border-bottom-right-radius: 4rem;
-    padding: 10rem;
+    padding-right: 6rem;
+    padding-left: 6rem;
     background-color: $color-primary;
 
-    h2 {
+    h2,
+    h3,
+    h4 {
       color: $color-light;
     }
 
@@ -302,11 +316,14 @@ img {
   }
 
   &--blue-background {
-    max-width: 120rem;
-    padding: 0 10rem 12rem 10rem;
+    max-width: 116rem;
+    padding-right: 6rem;
+    padding-left: 6rem;
     background-color: $color-primary;
 
-    h2 {
+    h2,
+    h3,
+    h4 {
       color: $color-light;
     }
 

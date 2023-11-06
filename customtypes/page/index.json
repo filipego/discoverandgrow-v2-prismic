@@ -17,6 +17,15 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "shop": {
+              "type": "SharedSlice"
+            },
+            "slider": {
+              "type": "SharedSlice"
+            },
+            "cards": {
+              "type": "SharedSlice"
+            },
             "video": {
               "type": "SharedSlice"
             },
