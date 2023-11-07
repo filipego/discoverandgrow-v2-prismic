@@ -14,6 +14,7 @@ export default function SelfLoveFeelingsForm({ FORMSPARK_FORM_ID }) {
 
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
+    const [phone, setPhone] = useState("");
     const [state, setState] = useState("");
     const [city, setCity] = useState("");
     const [timezone, setTimezone] = useState("");
@@ -32,7 +33,7 @@ export default function SelfLoveFeelingsForm({ FORMSPARK_FORM_ID }) {
 
     const onSubmit = async (e) => {
         e.preventDefault();
-        await submit({ name, email, state, city, timezone, age, message });
+        await submit({ name, email, phone, state, city, timezone, age, message });
         notify()
         e.target.reset();
     };
@@ -40,9 +41,10 @@ export default function SelfLoveFeelingsForm({ FORMSPARK_FORM_ID }) {
     return (<>
         <form onSubmit={onSubmit} className="form form--default">
             <input type="text" id="name" name="name" placeholder="Name" onChange={(e) => setName(e.target.value)} required />
-            <input type="email" id="email" name="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} required="" />
-            <select name="state" id="state" onChange={(e) => setState(e.target.value)} required="">
-                <option value="" selected="selected">Select a State</option>
+            <input type="email" id="email" name="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} required />
+            <input type="tel" id="phone" name="name" placeholder="Phone Format: 123-4567-8901" onChange={(e) => setPhone(e.target.value)} />
+            <select name="state" id="state" onChange={(e) => setState(e.target.value)}>
+                <option value="" selected="selected">State</option>
                 <option value="AL">Alabama</option>
                 <option value="AK">Alaska</option>
                 <option value="AZ">Arizona</option>
@@ -95,9 +97,9 @@ export default function SelfLoveFeelingsForm({ FORMSPARK_FORM_ID }) {
                 <option value="WI">Wisconsin</option>
                 <option value="WY">Wyoming</option>
             </select>
-            <input type="text" id="city" name="city" placeholder="City" onChange={(e) => setCity(e.target.value)} required />
-            <select name="timezone" id="timezone" onChange={(e) => setTimezone(e.target.value)} required="">
-                <option value="" selected="selected">Select a Time Zone</option>
+            <input type="text" id="city" name="city" placeholder="City" onChange={(e) => setCity(e.target.value)} />
+            <select name="timezone" id="timezone" onChange={(e) => setTimezone(e.target.value)}>
+                <option value="" selected="selected">Time Zone</option>
                 <option value="UTC">UTC (Coordinated Universal Time)</option>
                 <option value="GMT">GMT (Greenwich Mean Time)</option>
                 <option value="EST">EST (Eastern Standard Time)</option>
@@ -111,8 +113,8 @@ export default function SelfLoveFeelingsForm({ FORMSPARK_FORM_ID }) {
                 <option value="JST">JST (Japan Standard Time)</option>
                 <option value="IST">IST (Indian Standard Time)</option>
             </select>
-            <input type="text" id="age" name="age" placeholder="Age of child/children" onChange={(e) => setAge(e.target.value)} required />
-            <textarea placeholder="Message" value={message} onChange={(e) => setMessage(e.target.value)} required />
+            <input type="text" id="age" name="age" placeholder="Age of child/children" onChange={(e) => setAge(e.target.value)} />
+            <textarea placeholder="Message" value={message} onChange={(e) => setMessage(e.target.value)} />
             <button className="btn" type="submit" disabled={submitting}>
                 Send
             </button>

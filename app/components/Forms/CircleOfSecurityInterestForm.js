@@ -14,10 +14,14 @@ export default function CircleOfSecurityInterestForm({ FORMSPARK_FORM_ID }) {
 
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
+    const [phone, setPhone] = useState("");
     const [state, setState] = useState("");
     const [city, setCity] = useState("");
     const [timezone, setTimezone] = useState("");
     const [age, setAge] = useState("");
+    const [timeofsession, setTimeOfSession] = useState("");
+    const [dayofsession, setDayOfSession] = useState("");
+    const [sessionlength, setSessionLength] = useState("");
     const [message, setMessage] = useState("");
 
     const notify = () => toast.success("Thank you, your message has been sent", {
@@ -32,7 +36,7 @@ export default function CircleOfSecurityInterestForm({ FORMSPARK_FORM_ID }) {
 
     const onSubmit = async (e) => {
         e.preventDefault();
-        await submit({ name, email, state, city, timezone, age, message });
+        await submit({ name, email, phone, state, city, timezone, age, timeofsession, dayofsession, sessionlength, message });
         notify()
         e.target.reset();
     };
@@ -42,9 +46,13 @@ export default function CircleOfSecurityInterestForm({ FORMSPARK_FORM_ID }) {
         <>
             <form onSubmit={onSubmit} className="form">
                 <input type="text" id="name" name="name" placeholder="Name" onChange={(e) => setName(e.target.value)} required />
-                <input type="email" id="email" name="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} required="" />
-                <select name="state" id="state" onChange={(e) => setState(e.target.value)} required="">
-                    <option value="" selected="selected">Select a State</option>
+
+                <input type="email" id="email" name="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} required />
+
+                <input type="tel" id="phone" name="name" placeholder="Phone (Format: 12345678901)" onChange={(e) => setPhone(e.target.value)} />
+
+                <select name="state" id="state" onChange={(e) => setState(e.target.value)}>
+                    <option value="" selected="selected">State</option>
                     <option value="AL">Alabama</option>
                     <option value="AK">Alaska</option>
                     <option value="AZ">Arizona</option>
@@ -97,9 +105,11 @@ export default function CircleOfSecurityInterestForm({ FORMSPARK_FORM_ID }) {
                     <option value="WI">Wisconsin</option>
                     <option value="WY">Wyoming</option>
                 </select>
-                <input type="text" id="city" name="city" placeholder="City" onChange={(e) => setCity(e.target.value)} required />
-                <select name="timezone" id="timezone" onChange={(e) => setTimezone(e.target.value)} required="">
-                    <option value="" selected="selected">Select a Time Zone</option>
+
+                <input type="text" id="city" name="city" placeholder="City" onChange={(e) => setCity(e.target.value)} />
+
+                <select name="timezone" id="timezone" onChange={(e) => setTimezone(e.target.value)}>
+                    <option value="" selected="selected">Time Zone</option>
                     <option value="UTC">UTC (Coordinated Universal Time)</option>
                     <option value="GMT">GMT (Greenwich Mean Time)</option>
                     <option value="EST">EST (Eastern Standard Time)</option>
@@ -113,8 +123,37 @@ export default function CircleOfSecurityInterestForm({ FORMSPARK_FORM_ID }) {
                     <option value="JST">JST (Japan Standard Time)</option>
                     <option value="IST">IST (Indian Standard Time)</option>
                 </select>
-                <input type="text" id="age" name="age" placeholder="Age of child/children" onChange={(e) => setAge(e.target.value)} required />
-                <textarea placeholder="Message" value={message} onChange={(e) => setMessage(e.target.value)} required />
+
+                <input type="text" id="age" name="age" placeholder="Age of child/children" onChange={(e) => setAge(e.target.value)} />
+
+                <select name="timeofsession" id="timeofsession" onChange={(e) => setTimeOfSession(e.target.value)}>
+                    <option value="" selected="selected">Preferred time of session:</option>
+                    <option value="Morning">Morning</option>
+                    <option value="Afternoon">Afternoon</option>
+                    <option value="Evenings">Evenings</option>
+                </select>
+
+                <select name="dayofsession" id="dayofsession" onChange={(e) => setDayOfSession(e.target.value)}>
+                    <option value="" selected="selected">Preferred day of session:</option>
+                    <option value="Monday">Monday</option>
+                    <option value="Tuesday">Tuesday</option>
+                    <option value="Wednesday">Wednesday</option>
+                    <option value="Thursday">Thursday</option>
+                    <option value="Fridayn">Friday</option>
+                    <option value="Saturday">Saturday</option>
+                    <option value="Sunday">Sunday</option>
+                </select>
+
+                <select name="sessionlength" id="sessionlength" onChange={(e) => setSessionLength(e.target.value)}>
+                    <option value="" selected="selected">Preferred session length:</option>
+                    <option value="30 mins">30 mins</option>
+                    <option value="1 hour">1 hour</option>
+                    <option value="1.5 hours">1.5 hours</option>
+                    <option value="2 hours">2 hours</option>
+                </select>
+
+                <textarea placeholder="Message" value={message} onChange={(e) => setMessage(e.target.value)} />
+
                 <button className="btn" type="submit" disabled={submitting}>
                     Send
                 </button>
