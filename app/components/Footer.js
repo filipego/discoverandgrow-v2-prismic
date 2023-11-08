@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Container from './Container'
 import { PrismicRichText } from '@prismicio/react'
 import Badge from './Badge'
+import NewsletterForm from './Forms/NewsletterForm'
 
 export default async function Footer() {
 
@@ -17,6 +18,10 @@ export default async function Footer() {
                 <div className="footer__bio">
                     <Link href="/">{settings.data.site_title}</Link>
                     <PrismicRichText field={settings.data.footer_text} />
+                </div>
+                <div className='newsletter'>
+                    <h2>Subscribe to our newsletter and keep up with our latest news</h2>
+                    <NewsletterForm FORMSPARK_FORM_ID="nB9uoqJ5" />
                 </div>
                 <ul className='footer__social'>
                     {settings.data.social && settings.data.social.map(({ label, link }) => (

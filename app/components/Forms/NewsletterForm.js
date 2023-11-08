@@ -34,9 +34,9 @@ export default function NewsletterForm({ FORMSPARK_FORM_ID }) {
 
     return (
         <>
-            <form onSubmit={onSubmit}>
+            <form onSubmit={onSubmit} className="form form--newsletter">
                 <input type="email" id="email" name="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} required="" />
-                <button type="submit" disabled={submitting}>
+                <button className="btn btn--small" type="submit" disabled={submitting}>
                     Send
                 </button>
             </form>
